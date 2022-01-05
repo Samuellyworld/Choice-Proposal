@@ -4,13 +4,22 @@ const proposalCreate = document.getElementById("proposal");
 const footer = document.getElementById("footer");
 const Footer = document.getElementById("ft");
 const electionToggle = document.getElementById("election");
+const proposals = document.getElementById("proposals")
 
 
-
+//proposals page
+const Proposals= () => {
+  proposals.style.display = 'block'
+  proposalCreate.hidden = true;
+  homePage.hidden = true;
+  footer.hidden = true;
+  Footer.hidden = true;
+}
+//
 // toggle hide page
 const electionReset = () => {
     homePage.hidden = true;
-    
+    proposals.style.display = 'none'
     proposalCreate.hidden= false;
 }
 
@@ -19,7 +28,7 @@ const votePage = () => {
     homePage.hidden= true;
     footer.hidden = true;
     Footer.hidden = true;
-
+   
 }
 
 var modal = document.getElementById('simpleModal');
