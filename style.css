@@ -10,7 +10,9 @@ font-family: 'Poppins', sans-serif;
 #proposals {
     display: none;
 }
-
+.each-proposals {
+    margin: 20px;
+}
 
 .modal-overlay{
     display: none;
