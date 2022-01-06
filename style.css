@@ -13,7 +13,9 @@ font-family: 'Poppins', sans-serif;
 .each-proposals {
     margin: 20px;
 }
-
+#candidates {
+    display: none;
+}
 
 .modal-overlay{
     display: none;
