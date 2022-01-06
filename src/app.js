@@ -6,7 +6,7 @@ const Footer = document.getElementById("ft");
 const electionToggle = document.getElementById("election");
 const proposals = document.getElementById("proposals");
 const proposalDiv = document.getElementById("proposal-div");
-const proposalVote = document.getElementById("proposal-vote") //
+const eachProposalVotePage = document.getElementById("each-proposal-vote") //
  
 
 
@@ -50,7 +50,7 @@ console.log(img)
 //proposals page
 const Proposals= () => {
   proposals.style.display = 'block'
-  proposalVote.hidden= true;
+  eachProposalVotePage.hidden= true;
   proposalCreate.hidden = true;
   homePage.hidden = true;
   footer.hidden = true;
@@ -79,6 +79,7 @@ const Proposals= () => {
       // creating each proposal image
       const eachProposalImage= document.createElement('img');
       eachProposalImage.setAttribute("src", `${img}`);
+      eachProposalImage.setAttribute("onclick", "eachProposalVote()");
       eachProposalImage.classList.add("p-8", "w-72");
       eachProposalImage.setAttribute("alt", 'proposal image');
       // creating each proposal title
@@ -105,7 +106,7 @@ const eachProposalVote = () => {
   footer.hidden = true;
   Footer.hidden = true;
   proposals.style.display = 'none'
-  proposalVote.hidden = false;
+  eachProposalVotePage.hidden = false;
 }
 
 
@@ -114,7 +115,7 @@ const electionReset = () => {
     homePage.hidden = true;
     proposals.style.display = 'none'
     proposalCreate.hidden= false;
-    proposalVote.hidden = true;
+    eachProposalVotePage.hidden = true;
     footer.hidden = true;
     Footer.hidden = true;
 }
