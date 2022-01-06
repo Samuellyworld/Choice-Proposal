@@ -96,6 +96,7 @@ const Proposals= () => {
   
     })
   })
+  .catch(err => console.log(err));
     
 }
 
