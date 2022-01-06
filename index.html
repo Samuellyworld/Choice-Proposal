@@ -389,62 +389,76 @@ font-family: 'Poppins', sans-serif;
 
 <!-- each candidate vote -->
 <div id="candidates" class=" flex px-10 flex-col justify-center mt-24  h-auto">
-    <button class="connect pb-5 flex justify-end" id="modalBtn" >  <p class="mt-2" >Connect Wallet</p><img class="w-10" src="https://img.icons8.com/color/48/000000/wallet-app.png"/>  </button>
+    <button class="connect pb-5 flex justify-end" id="candidateModalBtn" >  <p class="mt-2" >Connect Wallet</p><img class="w-10" src="https://img.icons8.com/color/48/000000/wallet-app.png"/>  </button>
 
     <div class="wallet-modal" >
-        <div id="simpleModal" class="modal-overlay mt-24 md:mt-0">
+        <div id="candidateSimpleModal" class="modal-overlay mt-24 md:mt-0">
             <div class="modal-content rounded">
-              <div class="modal-header bg-blue-800">
-                  <span class="closeBtn"> <img class="w-8 text-white" src="../closemodal.svg"/> </span>
-                  <h2>Connect your Wallet</h2>
+              <div class="modal-header bg-blue-800" style="display: flex; justify-content: space-between;">
+                 <h2>Connect your Wallet</h2>
+                  <span style="cursor: pointer;" class="candidateCloseBtn" id="candidateCloseBtn"> <img class="w-8 text-white" src="../closemodal.svg"/> </span>
+                  
               </div>
+              
               <div class="modal-body">
-                <div class="flex inline-flex w-full " >
+                <div class="flex inline-flex w-full " onclick="myAlgoWalletConnect()">
                     <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
-                        <img class="w-12 text-white " src="../algorandlogo.svg" alt="algorand" srcset="">
-                        <p class="pt-3" >  Algorand  </p>
+                        <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/76r9kXSr/My-Algo-Logo-4c21daa4.png" alt="algorand" srcset="">
+                        <p class="pt-3" style="margin-left: 10px;" > My Algo Wallet</p>
                     </button>
                 </div>
+
+             <div class="flex inline-flex w-full " onclick="algoSignerConnect()" >
+                 <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                     <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/L4JB4JwT/Algo-Signer-2ec35000.png" alt="algosigner" srcset="">
+                     <p class="pt-3" style="margin-left: 10px;" > Algosigner</p>
+                 </button>
+            </div>
+            <div class="flex inline-flex w-full " onclick="connectWallet()">
+                 <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                     <img class="w-12 text-white " src="./algorandlogo.svg" alt="algorand" srcset="">
+                     <p class="pt-3" >Algorand Mobile Wallet</p>
+                 </button>
+          </div>
               </div>
-           
             </div>
           </div>
     </div>
 
     
 <div class="">
-<h1 class="text-3xl md:text-4xl text-center font-semibold  " > President of the Getter's club </h1>
+<h1 class="text-3xl md:text-4xl text-center font-semibold  " >Choice Coin Developer Of the Year </h1>
 </div>
-<p class="font-semibold text-xl my-10 text-center " > Candidtates </p>
+<p class="font-semibold text-xl my-10 text-center " > Candidates </p>
 <div class=" shadow-md border p-10  flex flex-col md-mx-5 md:grid md:grid-cols-4 md:gap-5">
 <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
-    <span> <img class=" w-56 h-30  flex items-center justify-center" src="data:image/jpeg;base64,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" alt=""> </span>
-    <p class="font-medium text-base pt-5 " > Mark Piers </p>  <span> 
+    <span> <img class=" w-56 h-30  flex items-center justify-center" src="https://avatars.githubusercontent.com/u/19754168?v=4" alt=""> </span>
+    <p class="font-medium text-base pt-5 " > Xekhai </p>  <span> 
 
      <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
 </div>
 <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
-    <span> <img class="  w-56 h-30 flex items-center justify-center" src="https://media.istockphoto.com/photos/portrait-young-confident-smart-asian-businessman-look-at-camera-and-picture-id1288538088?b=1&k=20&m=1288538088&s=170667a&w=0&h=3efMku7kSXUhpVrErAVVgxp6G91tRZ_5seygOn68RnE=" alt=""> </span>
-    <p class="font-medium text-base pt-5 " > Philip Lahm </p>  <span> 
+    <span> <img class="  w-56 h-30 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/81499885?v=4" alt=""> </span>
+    <p class="font-medium text-base pt-5 " > Oluwatunmise</p>  <span> 
     
 
         <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
 </div>
 <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
-    <span> <img class=" w-56 h-30  flex items-center justify-center" src="https://media.istockphoto.com/photos/headshot-of-44-year-old-mixed-race-man-in-casual-polo-shirt-picture-id1264106963?b=1&k=20&m=1264106963&s=170667a&w=0&h=dLQliHpFkaweGQhiRfkNGkwsAPoKCEy9UWWk-m2iCCk=" alt=""> </span>
-    <p class="font-medium text-base pt-5 " > Sam Acel </p>  <span> 
+    <span> <img class=" w-56 h-30  flex items-center justify-center" src="https://avatars.githubusercontent.com/u/78707441?v=4" alt=""> </span>
+    <p class="font-medium text-base pt-5 " > AlphaGlitch </p>  <span> 
 
         <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
 </div>
 <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
-    <span> <img class="w-56 h-30   flex items-center justify-center" src="https://media.istockphoto.com/photos/young-beautiful-woman-picture-id1294339577?b=1&k=20&m=1294339577&s=170667a&w=0&h=_5-SM0Dmhb1fhRdz64lOUJMy8oic51GB_2_IPlhCCnU=" alt=""> </span>
-    <p class="font-medium text-base pt-5 " > kemi Rangnor </p>  <span> 
+    <span> <img class="w-56 h-30   flex items-center justify-center" src="https://avatars.githubusercontent.com/u/40547207?v=4" alt=""> </span>
+    <p class="font-medium text-base pt-5 " > Jagah</p>  <span> 
 
         <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
 </div>
 <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
-    <span> <img class="w-56 h-30   flex items-center justify-center" src="https://media.istockphoto.com/photos/portrait-of-happy-mature-man-smiling-picture-id1278978817?b=1&k=20&m=1278978817&s=170667a&w=0&h=iS-4Ma_LZ4BCznYaJZQsQwD5Ygtqzzuls6V5QUchFSY=" alt=""> </span>
-    <p class="font-medium text-base pt-5 " > Assed Bashir </p>  <span> 
+    <span> <img class="w-56 h-30   flex items-center justify-center" src="https://avatars.githubusercontent.com/u/63968702?v=4" alt=""> </span>
+    <p class="font-medium text-base pt-5 " >Prince Hope</p>  <span> 
 
         <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
 </div>
@@ -454,12 +468,6 @@ font-family: 'Poppins', sans-serif;
 
 </div>
 
-<div class="CheckResult mt-10 mb-10  pb-10 flex justify-center" >
-<div> 
-    <a class=" px-5  py-3  text-white font-bold  bg-blue-800 mt-2 hover:bg-gray-800 rounded" href="./electionResult.html"> Check  Result </a>
-</div>
-
-</div>
 </div>
 
     <!-- successful vote -->

@@ -36,3 +36,34 @@ function eachOutsideClick(e){
     eachModal.style.display = 'none';
   }
 }
+
+// for candidate page
+
+var candidateModal = document.getElementById('candidateSimpleModal');
+
+var candidateModalBtn = document.getElementById('candidateModalBtn');
+
+var candidateCloseBtn = document.getElementById('candidateCloseBtn');
+
+candidateModalBtn.addEventListener('click', candidateOpenModal);
+
+candidateCloseBtn.addEventListener('click', candidateCloseModal);
+
+window.addEventListener('click', candidateOutsideClick);
+
+
+function candidateOpenModal(){
+  candidateModal.style.display = 'block';
+}
+
+// Close modal
+function candidateCloseModal(){
+  candidateModal.style.display = 'none';
+}
+
+// Click outside and close
+function candidateOutsideClick(e){
+  if(e.target == candidateModal){
+    candidateModal.style.display = 'none';
+  }
+}
