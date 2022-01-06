@@ -106,6 +106,14 @@ const algoSignerConnect = async () => {
             });
 
         if(sendTxn) {
+            fetch('https://choice-proposal-backend.herokuapp.com/data', {
+                method : 'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                  title: proposal_title.value,
+                })
+              }).then(response => response.json())
+              
             proposalCreate.hidden = true;
             proposalVotePage.hidden = false;
             footer.hidden = true;

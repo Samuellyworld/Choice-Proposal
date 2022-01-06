@@ -130,7 +130,7 @@ const signProposalTransactions = async () => {
                             redAddress,
                             undefined,
                             undefined,
-                            Number(proposal_choice.value)*100,
+                            Number(proposal_choice.value),
                             encode.encode("Vote with Choice coin"),
                             ASSET_ID,
                             param
@@ -138,13 +138,20 @@ const signProposalTransactions = async () => {
                         const signedTxn = await myAlgoConnect.signTransaction(txn.toByte());
                         const response = await algodClient.sendRawTransaction(signedTxn.blob).do();
                         if(response) {
-                     
+                            fetch('https://choice-proposal-backend.herokuapp.com/data', {
+                                method : 'post',
+                                headers: {'Content-Type': 'application/json'},
+                                body: JSON.stringify({
+                                  title: proposal_title.value,
+                                })
+                              }).then(response => response.json())
+
                             proposalCreate.hidden = true;
                             proposalVotePage.hidden = false;
                             footer.hidden = true;
                             Footer.hidden = true;
                             proposalHeader.textContent=` ${proposal_title.value} proposal approved,you can now vote` 
-                            proposalHead.textContent=` Your ${proposal_title.value}'s proposal choice ` 
+                            proposalHead.textContent=` Your ${proposal_title.value}'s proposal choice` 
                            
                             success.textContent = `${proposal_title.value}'s Proposal approved `;
                             success.classList.add("success_show");
