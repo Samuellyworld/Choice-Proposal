@@ -132,7 +132,6 @@ var modal = document.getElementById('simpleModal');
 
 var modalBtn = document.getElementById('modalBtn');
 
-
 var closeBtn = document.getElementsByClassName('closeBtn')[0];
 
 
@@ -158,5 +157,8 @@ function outsideClick(e){
     modal.style.display = 'none';
   }
 }
+
+
+
 
 electionToggle.addEventListener("click", electionReset);

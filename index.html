@@ -284,9 +284,42 @@ font-family: 'Poppins', sans-serif;
     </div>
    <div style="display:flex; justify-content: space-between;">
     <h1 id="proposal-header" class="font-bold text-lg pb-10" > Welcome</h1>
-    <button class="connect pb-5 flex justify-end" id="modalBtn" >  <p class="mt-2" >Connect Wallet  </p> <img class="w-5 h-5" style="margin-top: 9px; margin-left: 8px;" src="https://cdn-icons-png.flaticon.com/512/214/214362.png"/>  </button>
+    <button class="connect pb-5 flex justify-end" id="eachModalBtn" >  <p class="mt-2" >Connect Wallet  </p> <img class="w-5 h-5" style="margin-top: 9px; margin-left: 8px;" src="https://cdn-icons-png.flaticon.com/512/214/214362.png"/>  </button>
    </div>
     
+   <div class="wallet-modal">
+    <div id="eachSimpleModal" class="modal-overlay mt-24 md:mt-0" hidden>
+        <div class="modal-content rounded">
+          <div class="modal-header bg-blue-800" style="display: flex; justify-content: space-between;">
+              <h2>Connect your Wallet with</h2>
+              <span style="cursor: pointer;" class="eachCloseBtn"> <img id="eachCloseBtn" class="w-8 text-white" src="./closemodal.svg"/> </span>
+          </div>
+          <div class="modal-body">
+            <div class="flex inline-flex w-full " onclick="myAlgoWalletConnect()">
+                <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                    <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/76r9kXSr/My-Algo-Logo-4c21daa4.png" alt="algorand" srcset="">
+                    <p class="pt-3" style="margin-left: 10px;" > My Algo Wallet</p>
+                </button>
+            </div>
+
+         <div class="flex inline-flex w-full " onclick="algoSignerConnect()" >
+             <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                 <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/L4JB4JwT/Algo-Signer-2ec35000.png" alt="algosigner" srcset="">
+                 <p class="pt-3" style="margin-left: 10px;" > Algosigner</p>
+             </button>
+        </div>
+        <div class="flex inline-flex w-full " onclick="connectWallet()">
+             <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
+                 <img class="w-12 text-white " src="./algorandlogo.svg" alt="algorand" srcset="">
+                 <p class="pt-3" >Algorand Mobile Wallet</p>
+             </button>
+      </div>
+          </div>
+       
+        </div>
+      </div>
+</div>
+
    
     <div class="body">
         <header id="header-title">Particpate by Voting</header>
@@ -314,7 +347,7 @@ font-family: 'Poppins', sans-serif;
         <div class="current-open flex flex-col border rounded  p-5 md:p-10 md:flex-row" >
             
             <div class=" mb-5 w-full flex flex-col items-center justify-center   cursor-pointer md:w-auto">
-                <img class="w-44 h-30" src="https://media-exp1.licdn.com/dms/image/C4D1BAQEzyBcrpBcX7A/company-background_10000/0/1519796682454?e=215" alt="" srcset="">
+                <img class="w-44 h-30" src="https://media-exp1.licdn.com/dms/image/C4D1BAQEzyBcrpBcX7A/company-background_10000/0/1519796682454?e=2159024400&v=beta&t=UxYGzfBsmy8BJzmkXbfN5saHKpdfsyjC3dxl1xSZX2c" alt="" srcset="">
                 <p class="text-lg text-center font-bold pt-2 mb-2" >Developer of the year</p>
             </div>
             <div class="   mt-5 md:mt-0 w-full  md:w-3/4 md:pl-10" >
