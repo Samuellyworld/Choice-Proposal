@@ -6,8 +6,8 @@ const Footer = document.getElementById("ft");
 const electionToggle = document.getElementById("election");
 const proposals = document.getElementById("proposals");
 const proposalDiv = document.getElementById("proposal-div");
-const eachProposalVotePage = document.getElementById("each-proposal-vote") //
- 
+const eachProposalVotePage = document.getElementById("each-proposal-vote"); //
+const candidatesPage = document.getElementById("candidates");
 
 
 
@@ -55,6 +55,7 @@ const Proposals= () => {
   homePage.hidden = true;
   footer.hidden = true;
   Footer.hidden = true;
+  candidatesPage.style.display = 'none'
   proposalDiv.textContent = ''
 
   // fetch proposals from backend api
@@ -107,6 +108,7 @@ const eachProposalVote = () => {
   Footer.hidden = true;
   proposals.style.display = 'none'
   eachProposalVotePage.hidden = false;
+  candidatesPage.style.display = 'none';
 }
 
 
@@ -118,6 +120,7 @@ const electionReset = () => {
     eachProposalVotePage.hidden = true;
     footer.hidden = true;
     Footer.hidden = true;
+    candidatesPage.style.display = 'none';
 }
 
 // vote page 
@@ -156,6 +159,17 @@ function outsideClick(e){
   if(e.target == modal){
     modal.style.display = 'none';
   }
+}
+
+//vote ongoing election
+const candidateElection = () => {
+  homePage.hidden = true;
+  proposals.style.display = 'none'
+  proposalCreate.hidden= true;
+  eachProposalVotePage.hidden = true;
+  footer.hidden = true;
+  Footer.hidden = true;
+  candidatesPage.style.display = 'block';
 }
 
 
