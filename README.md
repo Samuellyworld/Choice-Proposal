@@ -15,9 +15,10 @@
 
 - video at - https://www.youtube.com/watch?v=Zo7I-V1qNic
 
-## checks
-- User can add proposal
-- User have to provide an amount of choice before submiting a proposal
-- Added error alert mop up to see when there is an error to improve the UX(User experience);
-- User can vote after submitting their proposal
-- User can see the Proposal title after voting have commenced
+## functionalities
+[x] User can add proposal and vote on the proposal
+[x] User have to provide 100 choice coin before submiting a proposal 
+[x] Another user with the web app link can vote on already added proposals and ongoing election
+[x] Added error alert mop up to see when there is an error to improve the UX(User experience);
+[x] both users with proposals and new users with the link can vote on general ongoing election
+

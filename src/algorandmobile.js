@@ -1,5 +1,4 @@
-import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "algorand-walletconnect-qrcode-modal";
+
 
 const connectWallet = () => {
     const connector = new WalletConnect({
