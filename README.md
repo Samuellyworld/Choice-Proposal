@@ -24,8 +24,9 @@
 
 ##  new features 
 - [x] A new ongoing election page was added so users can vote.
-- [x] All proposals submitted is also being shown so users can choose which proposal to vote on 
+- [x] All proposals submitted is also being shown so users can choose which proposal to vote on.
 - [x] Each Proposal submitted have its own page users can vote on.
 - [x] New users with link can vote on both submitted proposals and general ongoing eleection.
+- [x] Choice committed over 10 transactions rounded up to two decimals instead of the long decimals via my former demo.
 
  
