@@ -189,11 +189,14 @@ header {
 
 
   @media screen and (max-width: 600px){
+      .logo {
+          margin-left: -12px !important;
+      }
     #choice-amount {
         width: 60vw !important;
     }
     .create {
-       font-size: 17px !important;
+       font-size: 15px !important;
       }
     .home {
         font-size: 22px !important;
