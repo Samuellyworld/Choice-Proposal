@@ -47,8 +47,8 @@ const proposalvoteButton = document.getElementById("proposal-button");
 
 
 
-let red = document.getElementById("red"); // get the red checkbox
-let blue = document.getElementById("blue"); //get the blue checkbox
+const red = document.getElementById("red"); // get the red checkbox
+const blue = document.getElementById("blue"); //get the blue checkbox
 const choiceAmount = document.getElementById("choice-amount")
 const successfulVotePage = document.getElementById("successful") //get success page
 
@@ -98,14 +98,19 @@ const myAlgoWalletConnect = async () => {
         
     } 
     catch (error){
-        console.error(error)
+        err.textContent= "Error Connecting to My AlgoWallet 📃 "
+        err.classList.add("error_show")
+        setTimeout(() => {
+            err.classList.remove("error_show")
+        }, 2000)
+        console.log(error);
     }
 }
 
 const signProposalTransactions = async () => {
 
     if(!respons) {
-     err.textContent= "You need to connect your wallet 🥺"
+     err.textContent= "You need to connect your wallet to vote 📵"
      err.classList.add("error_show")
      setTimeout(() => {
          err.classList.remove("error_show")
@@ -174,7 +179,7 @@ const signProposalTransactions = async () => {
 
 const myAlgoWalletSign = async () =>{
     
-    if(!red.value || !blue.value) {
+    if(!red.checked && !blue.checked) {
         errors.textContent= "Please select an Option to vote"
      errors.classList.add("error_show")
      setTimeout(() => {
@@ -295,6 +300,133 @@ const algoWalletSend = async (value, wallet_address, amount) => {
 
 }
 
+//getting all each proposal ids
+const eachError = document.getElementById('each-error');
+const eachSuccess = document.getElementById("each-success");
+const eachSimpleModal = document.getElementById("eachSimpleModal");
+const eachRedOption = document.getElementById("each-red");
+const eachBlueOption = document.getElementById("each-blue");
+const eachChoiceAmount = document.getElementById("each-choice-amount");
+const eachAfterVote = document.getElementById("each-after");
+const eachSuccessful = document.getElementById('each-successful');
+const eachProposalButton = document.getElementById("each-proposal-button");
+
+
+//connect each proposal vote
+const myAlgoconnectEachProposal = async () => {
+    try {
+        let eachResponse = await myAlgoConnect.connect();
+        eachSimpleModal.style.display = 'none';
+        console.log(eachResponse);
+        if(eachResponse) {
+             eachSimpleModal.style.display = 'none';
+             eachSuccess.textContent = "MyAlgoWallet successfully connected";
+             eachSuccess.classList.add("success_show");
+             setTimeout(() => {
+                 eachSuccess.classList.remove("success_show");
+             }, 2000)
+
+             respons = eachResponse[0].address
+             
+         }
+        
+    } 
+    catch (error){
+        eachSimpleModal.style.display = 'none';
+        eachError.textContent= "Error Connecting to My AlgoWallet 📃 "
+        eachError.classList.add("error_show")
+        setTimeout(() => {
+            eachError.classList.remove("error_show")
+        }, 2000)
+        console.error(error)
+    }
+
+}
+//sign each proposal vote
+const signEachProposalSubmittedVote = async () => {
+    if(!respons) {
+        eachError.textContent= "You need to connect your wallet 📵"
+        eachError.classList.add("error_show")
+        setTimeout(() => {
+            eachError.classList.remove("error_show")
+        }, 1000)
+       } else if(!eachRedOption.checked && !eachBlueOption.checked) {
+        eachError.textContent= "Please select an Option to vote"
+        eachError.classList.add("error_show")
+     setTimeout(() => {
+         eachError.classList.remove("error_show")
+     }, 2000)
+    }
+    else if(!eachChoiceAmount.value){
+        eachError.textContent= "Please enter choice amount"
+        eachError.classList.add("error_show")
+        setTimeout(() => {
+            eachError.classList.remove("error_show")
+        }, 2000)
+    }
+     // check if redinput is clicked
+     else if(eachRedOption.checked) {
+        let value = eachRedOption.value
+        console.log(value)
+        let  redChoiceAmount = Number(document.getElementById("each-choice-amount").value) //get amount
+        let response = await algoWalletSend(value, respons, redChoiceAmount);
+        if (response){
+            console.log(response);
+            eachSuccess.textContent = `tnxId: ${response.txId}`;
+            eachSuccess.classList.add("success_show");
+            setTimeout(() => {
+                eachSuccess.classList.remove("success_show");
+            }, 500)
+            eachSuccessful.hidden = false;
+            eachAfterVote.style.display = 'none';
+            proposalCreate.hidden = true;
+            homePage.hidden = true;
+            footer.hidden = true;
+            Footer.hidden = true;
+            proposals.style.display = 'none'
+            
+            eachProposalVotePage.hidden = false;
+            candidatesPage.style.display = 'none';
+            proposalVotePage.hidden=true;
+           
+
+        } 
+            // result.textContent= `Your transactionID : ${response}` //transaction response
+    
+
+        }
+      // check if blue input is clicked
+    else  if(eachBlueOption.checked) {
+          let value = eachBlueOption.value
+          let blueChoiceAmount = Number(document.getElementById("each-choice-amount").value) //get amount
+          console.log(blueChoiceAmount)
+          
+        let response = await algoWalletSend(value, respons, blueChoiceAmount);
+        if (response){
+            console.log(response);
+            eachSuccess.textContent = `tnxId: ${response.txId}`;
+            eachSuccess.classList.add("success_show");
+            setTimeout(() => {
+                eachSuccess.classList.remove("success_show");
+            }, 1000)
+            eachSuccessful.hidden = false;
+            eachAfterVote.style.display = 'none';
+            proposalCreate.hidden = true;
+            homePage.hidden = true;
+            footer.hidden = true;
+            Footer.hidden = true;
+            proposals.style.display = 'none'
+            
+            eachProposalVotePage.hidden = false;
+            candidatesPage.style.display = 'none';
+            proposalVotePage.hidden=true;
+           
+
+        } 
+        }   
+}
+
+
 const checkWallet = () => {
     if (respons) {
         signProposalTransactions()
@@ -313,6 +445,15 @@ const checkwalletSigned = () => {
     }
 }
 
+const checkEachWallet = () => {
+    if (respons) {
+        signEachProposalSubmittedVote()
+    } else {
+        algosignerEachSign()
+    }
+}
+
 proposalButton.addEventListener("click", checkWallet);
 proposalvoteButton.addEventListener("click", checkwalletSigned);
+eachProposalButton.addEventListener('click', checkEachWallet)
 

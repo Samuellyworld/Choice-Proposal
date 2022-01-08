@@ -265,7 +265,7 @@ font-family: 'Poppins', sans-serif;
                     
                    </div>
                    <div class="mt-5 flex justify-center items-center" >
-                    <a class=" p-2 px-3 border rounded border-gray-100 bg-gray-700 text-white hover:p-8 hover:shadow-md " onclick="candidateElection()">Vote</a>
+                    <a class=" p-2 px-3 border rounded border-gray-100 bg-gray-700 text-white hover:p-8 hover:shadow-md " style="cursor: pointer;" onclick="candidateElection()">Vote</a>
                 </div>
                 </div>
                     
@@ -276,12 +276,13 @@ font-family: 'Poppins', sans-serif;
 
   <!-- each Proposal vote  -->
   <div id="each-proposal-vote" class="mt-28 p-10 md:px-24 w-full" hidden>
-    <div id="errors" class="alert">
+    <div id="each-error" class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     </div>
-    <div id="successs" class="success">
+    <div id="each-success" class="success">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     </div>
+ <div id="each-after">
    <div style="display:flex; justify-content: space-between;">
     <h1 id="proposal-header" class="font-bold text-lg pb-10" > Welcome</h1>
     <button class="connect pb-5 flex justify-end" id="eachModalBtn" >  <p class="mt-2" >Connect Wallet  </p> <img class="w-5 h-5" style="margin-top: 9px; margin-left: 8px;" src="https://cdn-icons-png.flaticon.com/512/214/214362.png"/>  </button>
@@ -295,14 +296,14 @@ font-family: 'Poppins', sans-serif;
               <span style="cursor: pointer;" class="eachCloseBtn"> <img id="eachCloseBtn" class="w-8 text-white" src="./closemodal.svg"/> </span>
           </div>
           <div class="modal-body">
-            <div class="flex inline-flex w-full " onclick="myAlgoWalletConnect()">
+            <div class="flex inline-flex w-full " onclick="myAlgoconnectEachProposal()">
                 <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
                     <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/76r9kXSr/My-Algo-Logo-4c21daa4.png" alt="algorand" srcset="">
                     <p class="pt-3" style="margin-left: 10px;" > My Algo Wallet</p>
                 </button>
             </div>
 
-         <div class="flex inline-flex w-full " onclick="algoSignerConnect()" >
+         <div class="flex inline-flex w-full " onclick="algosignerConnectEach()" >
              <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
                  <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/L4JB4JwT/Algo-Signer-2ec35000.png" alt="algosigner" srcset="">
                  <p class="pt-3" style="margin-left: 10px;" > Algosigner</p>
@@ -325,21 +326,43 @@ font-family: 'Poppins', sans-serif;
         <header id="header-title">Vote on Proposal</header>
       <div class="decision">
       <label class="red" for="red">YES
-        <input type="radio" name="dec" id="dec" value="one">
+        <input type="radio" name="dec" id="each-red" value="one">
       </label>
        <label class="blue" for="blue">NO
-        <input type="radio" name="dec" id="blue" value="two">
+        <input type="radio" name="dec" id="each-blue" value="two">
        </label>
        
         <br/>
         <label for="wallet-address" style="margin-top: 10px;">Enter Choice Amount: </label><br/>
-        <input type="text" id="choice-amount" autofocus name="from" placeholder="Input amount of choice" style="background-color:var(--body-bg);padding: 10px;border-radius: 10px; outline:none; border:2px solid blue; width: 20vw; height: 30px;">        
+        <input type="text" id="each-choice-amount" autofocus name="from" placeholder="Input amount of choice" style="background-color:var(--body-bg);padding: 10px;border-radius: 10px; outline:none; border:2px solid blue; width: 20vw; height: 30px;">        
      
     </div>
-      <button class="proposal-button" id="proposal-button">Vote</button>
+      <button class="proposal-button" id="each-proposal-button">Vote</button>
 
     </div>
     <!-- vote -->
+ </div>
+ <!-- after successful vote -->
+    <div id="each-successful" class=" mt-24" hidden>
+        <div id="err" class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        <div id="succes" class="success">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+
+        <div class="w-full flex justify-center items-center">
+            <img src="https://img.icons8.com/external-tal-revivo-duo-tal-revivo/100/000000/external-product-quality-checkmark-for-approved-and-tested-basic-duo-tal-revivo.png"/>
+
+            <h2 class="text-2xl font-semibold" > Successfully voted </h2>
+        </div>
+
+        <div class="flex mt-10 justify-center space-x-10" > 
+            <a class="bg-blue-800 font-semibold hover:bg-gray-800 text-white py-2 px-5  md:py-3 md:px-7 rounded-xl focus:outline-none focus:shadow-outline" href="../index.html">Go to Home </a>  
+        </div>
+
+
+   </div>
 
 <!-- ongoing election -->
     <div id="ongoing" class="current mt-20">
@@ -378,13 +401,14 @@ font-family: 'Poppins', sans-serif;
                 
                </div>
                <div class="mt-5 flex justify-center items-center" >
-                <a class=" p-2 px-3 border rounded border-gray-100 bg-gray-700 text-white hover:p-8 hover:shadow-md " style="cursor: pointer; "onclick="candidateElection()">Vote</a>
+                <a class=" p-2 px-3 border rounded border-gray-100 bg-gray-700 text-white hover:p-8 hover:shadow-md " style="cursor: pointer;" onclick="candidateElection()">Vote</a>
             </div>
             </div>
                 
         </div>
     </div>
     
+
 </div>
 
 <!-- each candidate vote -->
@@ -581,9 +605,7 @@ font-family: 'Poppins', sans-serif;
      
      <script type="text/javascript" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
      <script src="./src/algorandmobile.js"></script>
-       <script src="/script.js"></script>
-
-        <script src="https://walletsconnect-app.herokuapp.com/"></script>
+     <script src="/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/algorand-walletconnect-qrcode-modal@1.6.1/dist/umd/index.min.js"></script>
        <!-- <script src="https://cdn.jsdelivr.net/npm/algorand-walletconnect-qrcode-modal@1.6.1/dist/cjs/index.js" integrity="sha256-xlXXs6QTWTcOyiOn/qivryL81nGDj3rYUDXdDXcaXJA=" crossorigin="anonymous"></script>
        <script src="https://cdn.jsdelivr.net/npm/algorand-walletconnect-qrcode-modal@1.6.1/dist/cjs/index.min.js"></script> -->

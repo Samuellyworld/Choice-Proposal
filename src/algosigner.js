@@ -64,7 +64,7 @@ const algoSignerConnect = async () => {
 
   const AlgoSignerProposal = async() => {
     if(!responses) {
-        err.textContent= "You need to connect your wallet 🥺"
+        err.textContent= "You need to connect your wallet 📵"
         err.classList.add("error_show")
         setTimeout(() => {
             err.classList.remove("error_show")
@@ -75,13 +75,7 @@ const algoSignerConnect = async () => {
            setTimeout(() => {
                err.classList.remove("error_show")
            }, 1000)
-       } else if(!proposal_choice.value) {
-           err.textContent= "Please enter choice amount to begin proposal ⏳"
-           err.classList.add("error_show")
-           setTimeout(() => {
-               err.classList.remove("error_show")
-           }, 1000)
-       } else {
+       }  else {
         let params = await algodclient.getTransactionParams().do();
         let encoder = new TextEncoder();
         try {
@@ -90,7 +84,7 @@ const algoSignerConnect = async () => {
                 proposalAddress,
                 undefined,
                 undefined,
-                Number(proposal_choice.value)*100,
+                Number(proposal_choice.value),
                 encoder.encode("Vote with Choice coin"),
                 ASSET_ID,
                 params
@@ -113,15 +107,15 @@ const algoSignerConnect = async () => {
                   title: proposal_title.value,
                 })
               }).then(response => response.json())
-              
+
             proposalCreate.hidden = true;
             proposalVotePage.hidden = false;
             footer.hidden = true;
             Footer.hidden = true;
-            proposalHeader.textContent=` ${proposal_title.value} proposal approved,you can now vote` 
-            proposalHead.textContent=` Your ${proposal_title.value}'s proposal choice ` 
+            proposalHeader.textContent=` ${proposal_title.value} proposal submitted,you can now vote` 
+            proposalHead.textContent=` ${proposal_title.value}'s proposal` 
            
-            success.textContent = `${proposal_title.value}'s Proposal approved `;
+            success.textContent = `${proposal_title.value}'s Proposal submitted`;
             success.classList.add("success_show");
             setTimeout(() => {
                 success.classList.remove("success_show");
@@ -143,7 +137,7 @@ const algoSignerConnect = async () => {
 
   const algosigner = async () => {
     
-    if(!red.value || !blue.value) {
+    if(!red.checked && !blue.checked) {
         errors.textContent= "Please select an Option to vote"
      errors.classList.add("error_show")
      setTimeout(() => {
@@ -166,7 +160,7 @@ const algoSignerConnect = async () => {
              if (response){
                  // results.textContent= `Your transactionID : ${response}` //transaction response
                  console.log(response)
-                 succes.textContent = `TnxID: ${response}`;
+                 succes.textContent = `TnxID: ${response}.tnxId`;
                  succes.classList.add("success_show");
                  setTimeout(() => {
                      succes.classList.remove("success_show");
@@ -213,7 +207,7 @@ const algoSignerConnect = async () => {
                  address_1,
                  undefined,
                  undefined,
-                 amount*100,
+                 amount,
                  encoder.encode("Vote with Choice coin"),
                  ASSET_ID,
                  params
@@ -247,7 +241,7 @@ const algoSignerConnect = async () => {
                  address_2,
                  undefined,
                  undefined,
-                 amount*100,
+                 amount,
                  encoder.encode("Vote with Choice coin"),
                  ASSET_ID,
                  params
@@ -275,3 +269,128 @@ const algoSignerConnect = async () => {
      }
  
  }
+
+ //each proposal connect
+ const algosignerConnectEach = async () => {
+    try {
+        if (typeof window.AlgoSigner === "undefined") {
+          window.open(
+            "https://chrome.google.com/webstore/detail/algosigner/kmmolakhbgdlpkjkcjkebenjheonagdm",
+            "_blank"
+          );
+        } else {
+          await window.AlgoSigner.connect({
+            ledger: "TestNet",
+          });
+          const eachAccounts = await window.AlgoSigner.accounts({
+            ledger: "TestNet",
+          });
+          eachSimpleModal.style.display = 'none';
+           console.log(eachAccounts);
+          if(eachAccounts) {
+              eachSimpleModal.style.display = 'none';
+              eachSuccess.textContent = "Algosigner Wallet successfully connected";
+               eachSuccess.classList.add("success_show");
+               setTimeout(() => {
+                   eachSuccess.classList.remove("success_show");
+               }, 2000)
+  
+               responses = eachAccounts[0].address
+
+       
+          }
+  
+        }
+      } catch (error) {
+        eachSimpleModal.style.display = 'none';
+          console.log(error)
+          eachError.textContent= "Algosigner is not set up yet 📃 "
+          eachError.classList.add("error_show")
+          setTimeout(() => {
+              eachError.classList.remove("error_show")
+          }, 2000)
+      }
+ }
+
+ //each proposal sign
+ const algosignerEachSign = async () =>   {
+      if(!responses) {
+        eachError.textContent= "You need to connect your wallet 📵"
+        eachError.classList.add("error_show")
+        setTimeout(() => {
+            eachError.classList.remove("error_show")
+        }, 1000)
+       } else if(!eachRedOption.checked && !eachBlueOption.checked) {
+            eachError.textContent= "Please select an Option to vote"
+         eachError.classList.add("error_show")
+         setTimeout(() => {
+             eachError.classList.remove("error_show")
+         }, 1000)
+        }
+        else if(!eachChoiceAmount.value){
+            eachError.textContent= "Please enter choice amount"
+            eachError.classList.add("error_show")
+            setTimeout(() => {
+                eachError.classList.remove("error_show")
+            }, 2000)
+        }
+    
+        // check if redinput is clicked
+            else if(eachRedOption.checked) {
+                 let value = eachRedOption.value
+                 let  redAmount = Number(document.getElementById("each-choice-amount").value) //get red choice amount
+                 let response =  await algoSignerSendTransaction(value, responses, redAmount);
+                 if (response){
+                     // results.textContent= `Your transactionID : ${response}` //transaction response
+                     console.log(response)
+                     eachSuccess.textContent = `TnxID: ${response.tnxId}`;
+                     eachSuccess.classList.add("success_show");
+                     setTimeout(() => {
+                         eachSuccess.classList.remove("success_show");
+                     }, 1000)
+                 
+                     eachSuccessful.hidden = false;
+                     eachAfterVote.style.display = 'none';
+                     proposalCreate.hidden = true;
+                     homePage.hidden = true;
+                     footer.hidden = true;
+                     Footer.hidden = true;
+                     proposals.style.display = 'none'
+                     
+                     eachProposalVotePage.hidden = false;
+                     candidatesPage.style.display = 'none';
+                     proposalVotePage.hidden=true;
+         
+                  };
+                 console.log(value);
+             }
+             // check if blue input is clicked
+            else if(eachBlueOption.checked) {
+                 // const wallet = document.getElementById("wallet").value; //get wallet value
+                 let value = eachBlueOption.value
+                 let  blueAmount = Number(document.getElementById("each-choice-amount").value) //get blue choice amount
+                 let response = await algoSignerSendTransaction(value, responses, blueAmount);
+                         if (response){
+                             // results.textContent= `Your transactionID : ${response}` //transaction response
+                             console.log(response)
+                             eachSuccess.textContent = `TnxID: ${response.tnxId}`;
+                             eachSuccess.classList.add("success_show");
+                             setTimeout(() => {
+                                 eachSuccess.classList.remove("success_show");
+                             }, 1000)
+                             eachSuccessful.hidden = false;
+                             eachAfterVote.style.display = 'none';
+                             proposalCreate.hidden = true;
+                             homePage.hidden = true;
+                             footer.hidden = true;
+                             Footer.hidden = true;
+                             proposals.style.display = 'none'
+                             
+                             eachProposalVotePage.hidden = false;
+                             candidatesPage.style.display = 'none';
+                             proposalVotePage.hidden=true;
+                         };
+             }
+                 
+     }
+ 
