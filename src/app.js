@@ -50,6 +50,7 @@ console.log(img)
 //proposals page
 const Proposals= () => {
   proposals.style.display = 'block'
+  successfulVotePage.hidden = true;
   eachProposalVotePage.hidden= true;
   proposalCreate.hidden = true;
   homePage.hidden = true;
@@ -103,6 +104,7 @@ const Proposals= () => {
 
 //proposal vote page;
 const eachProposalVote = () => {
+  successfulVotePage.hidden = true;
   proposalCreate.hidden = true;
   homePage.hidden = true;
   footer.hidden = true;
@@ -115,6 +117,7 @@ const eachProposalVote = () => {
 
 // toggle hide page
 const electionReset = () => {
+    successfulVotePage.hidden = true;
     homePage.hidden = true;
     proposals.style.display = 'none'
     proposalCreate.hidden= false;
@@ -164,6 +167,7 @@ function outsideClick(e){
 
 //vote ongoing election
 const candidateElection = () => {
+  successfulVotePage.hidden = true;
   homePage.hidden = true;
   proposals.style.display = 'none'
   proposalCreate.hidden= true;

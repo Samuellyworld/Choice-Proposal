@@ -249,7 +249,7 @@ const algoWalletSend = async (value, wallet_address, amount) => {
                 address_1,
                 undefined,
                 undefined,
-                amount*100,
+                amount,
                 encoder.encode("Vote with Choice coin"),
                 ASSET_ID,
                 params
@@ -274,7 +274,7 @@ const algoWalletSend = async (value, wallet_address, amount) => {
                 address_2,
                 undefined,
                 undefined,
-                amount*100,
+                amount,
                 encoder.encode("Vote with Choice coin"),
                 ASSET_ID,
                 params
