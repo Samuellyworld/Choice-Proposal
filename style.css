@@ -188,9 +188,12 @@ header {
 
 
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 600px){
+    .developer {
+        font-size: 18px !important;
+    }
     .font {
-        font-size: 13px;
+        font-size: 12px;
     }
      .modal-content {
          width: 80%;
@@ -200,6 +203,9 @@ header {
      }
   }
   @media screen and (max-width: 1000px) {
+      .developer {
+          font-size: 18px !important;
+      }
       .show{
           width: 80vw;
           font-size: 13px;
@@ -216,3 +222,4 @@ header {
           width: 100% !important;
       }
   }
+
