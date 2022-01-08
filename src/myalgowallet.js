@@ -89,8 +89,9 @@ const myAlgoWalletConnect = async () => {
         history["transactions"].forEach(data=>{
             totalCoin += data["asset-transfer-transaction"]["amount"]/100
         });
+        let totalCoins = totalCoin.toFixed(3);
         // choice_commited.textContent = `${totalCoin}`
-        coin_in_gov_btn.textContent += ` ${totalCoin} Choice | ${res}...`;
+        coin_in_gov_btn.textContent += ` ${totalCoins} Choice | ${res}...`;
     coin_in_gov_btn.classList.add("show");
              
          }
@@ -115,13 +116,7 @@ const signProposalTransactions = async () => {
         setTimeout(() => {
             err.classList.remove("error_show")
         }, 1000)
-    } else if(!proposal_choice.value) {
-        err.textContent= "Please enter choice amount to begin proposal ⏳"
-        err.classList.add("error_show")
-        setTimeout(() => {
-            err.classList.remove("error_show")
-        }, 2000)
-    } else {
+    }  else {
         let param = await algodClient.getTransactionParams().do(); //get params
         let encode = new TextEncoder();  //encode
                     try {
@@ -130,7 +125,7 @@ const signProposalTransactions = async () => {
                             redAddress,
                             undefined,
                             undefined,
-                            Number(proposal_choice.value),
+                            1,
                             encode.encode("Vote with Choice coin"),
                             ASSET_ID,
                             param

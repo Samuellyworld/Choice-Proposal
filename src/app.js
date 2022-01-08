@@ -169,8 +169,10 @@ const candidateElection = () => {
   proposalCreate.hidden= true;
   eachProposalVotePage.hidden = true;
   footer.hidden = true;
+  proposalVotePage.hidden=true;
   Footer.hidden = true;
   candidatesPage.style.display = 'block';
+
 }
 
 
