@@ -145,10 +145,10 @@ const signProposalTransactions = async () => {
                             proposalVotePage.hidden = false;
                             footer.hidden = true;
                             Footer.hidden = true;
-                            proposalHeader.textContent=` ${proposal_title.value} proposal approved,you can now vote` 
-                            proposalHead.textContent=` Your ${proposal_title.value}'s proposal choice` 
+                            proposalHeader.textContent=` ${proposal_title.value} proposal submitted,you can now vote` 
+                            proposalHead.textContent=` Vote on ${proposal_title.value}'s proposal` 
                            
-                            success.textContent = `${proposal_title.value}'s Proposal approved `;
+                            success.textContent = `${proposal_title.value}'s Proposal submitted `;
                             success.classList.add("success_show");
                             setTimeout(() => {
                                 success.classList.remove("success_show");
