@@ -21,6 +21,7 @@ font-family: 'Poppins', sans-serif;
              
              } 
          #choice{
+             
               position: absolute;
          }
 
@@ -29,7 +30,7 @@ font-family: 'Poppins', sans-serif;
             position:relative;
             width: 100%; 
             height: 700px;
-            background-color: #2c041d;
+            background-color: #0c0208;
             background-image: url(""); 
             background-repeat: no-repeat; 
             background-size: cover;
@@ -87,7 +88,7 @@ font-family: 'Poppins', sans-serif;
     <div class="" id="choice-div">
         <div id="choice" class="choice text-white pt-14 px-5   md:px-20 " >
             <div class=" pt-5">
-                <h1 class=" text-3xl md:text-5xl leading-loose  pb-4 " >A Democratic Token For a New Age</h1>
+                <h1 class=" home text-3xl md:text-5xl leading-loose  pb-4 " >A Democratic Token For a New Age</h1>
                 <p class="flex flex-wrap text-sm md:text-base mt-5 " > Choice Coin is an Algorand Standard Asset that powers Decentralized Decisions, a voting and governance software built directly on the Algorand Blockchain. Decentralized Decisions enables organizations to make governance decisions in an open and decentralized manner. For the Choice Coin DAO,
                      Decentralized Decisions leverages Proof-of-Participation as a governance mechanism, allowing voters to have a larger say in direct proportion to their contribution to the network. </p>
                 <p> Choice Coin powers Decentralized Voting Technology that will define governance for the next generation. </p>
@@ -137,9 +138,9 @@ font-family: 'Poppins', sans-serif;
               <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" >
                 
            <div style="display:flex; justify-content: space-between;">
-                <h1 class="block text-gray-700 text-xl font-bold mb-2" > Create Proposal </h1> 
+                <h1 class="create block text-gray-700 text-xl font-bold mb-2" > Create Proposal </h1> 
                <!-- wallet connection -->
-                <button class="connect pb-5 flex justify-end" id="modalBtn" >  <p class="mt-2" >Connect Wallet</p><img class="w-10" src="https://img.icons8.com/color/48/000000/wallet-app.png"/>  </button>
+                <button class="connect pb-5 flex justify-end" id="modalBtn" >  <p class="mt-2 create" >Connect Wallet</p><img class="w-10" src="https://img.icons8.com/color/48/000000/wallet-app.png"/>  </button>
             </div>
            
           
@@ -182,7 +183,7 @@ font-family: 'Poppins', sans-serif;
           
           <input id="proposal-title" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="electionTitle" type="text" placeholder="Enter Proposal Title"  >
         </div>
-            <p style="padding-bottom: 20px; font-size: 13px; color: red;"  class="italic">NB - 100 choice will be deducted for proposal to be submitted</p>
+            <p style="padding-bottom: 20px; font-size: 13px; color: red;"  class="italic">100 choice will be committed for proposal to be submitted</p>
         <a id="proposal-sign"
         class="submit bg-gray-700 mt-2 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >Submit Proposal</a>
      </div>
@@ -216,7 +217,7 @@ font-family: 'Poppins', sans-serif;
            
             <br/>
             <label for="wallet-address" style="margin-top: 10px;">Enter Choice Amount: </label><br/>
-            <input type="text" id="choice-amount" autofocus name="from" placeholder="Input amount of choice" style="background-color:var(--body-bg);padding: 10px;border-radius: 10px; outline:none; border:2px solid blue; width: 40vh; height: 30px;">        
+            <input type="text" id="choice-amount" autofocus name="from" placeholder="Input amount of choice" style="background-color:var(--body-bg);padding: 10px;border-radius: 10px; outline:none; border:2px solid blue; width: 40vw; height: 30px;">        
          
         </div>
           <button class="proposal-button" id="proposal-button">Vote</button>
@@ -329,7 +330,7 @@ font-family: 'Poppins', sans-serif;
        
         <br/>
         <label for="wallet-address" style="margin-top: 10px;">Enter Choice Amount: </label><br/>
-        <input type="text" id="choice-amount" autofocus name="from" placeholder="Input amount of choice" style="background-color:var(--body-bg);padding: 10px;border-radius: 10px; outline:none; border:2px solid blue; width: 40vh; height: 30px;">        
+        <input type="text" id="choice-amount" autofocus name="from" placeholder="Input amount of choice" style="background-color:var(--body-bg);padding: 10px;border-radius: 10px; outline:none; border:2px solid blue; width: 20vw; height: 30px;">        
      
     </div>
       <button class="proposal-button" id="proposal-button">Vote</button>
@@ -553,11 +554,11 @@ font-family: 'Poppins', sans-serif;
                 <a href=""><img class="w-8" src="https://img.icons8.com/fluency/48/000000/twitter.png"/></a>   
                 <a href=""><img class="w-8" src="https://img.icons8.com/color/48/000000/discord-logo.png"/></a>
             </div>
-            <a class="text-lg font-semi-bold text-center text-base mt-5" href="https://choice-coin.gitbook.io/choice-coin-docs/">Docs</a>
+            <a  style="color: antiquewhite;" class="text-lg font-semi-bold text-center text-base mt-5" href="https://choice-coin.gitbook.io/choice-coin-docs/">Docs</a>
         </div>
     
      </div>
-     <div class=" text-center pb-5"> <p  > © 2021 All rights reserved Choice coin </p> </div>
+     <div style="color: aliceblue;" class=" text-center pb-5"> <p  > © 2021 All rights reserved Choice coin </p> </div>
  </footer>
     <!-- SCRIPT -->
     <script

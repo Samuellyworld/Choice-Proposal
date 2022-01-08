@@ -4,7 +4,7 @@ body{
 font-family: 'Poppins', sans-serif;
 }
 .home-nav{
-    background-color: #2c041d;
+    background-color: #0c0208;
 }
 
 #proposals {
@@ -149,7 +149,7 @@ font-family: 'Poppins', sans-serif;
 }
 
 .body{
-    border: solid 1px lightseagreen;
+    border: solid 1px rgb(235, 230, 230);
     border-radius: 1.2%;
     text-align: center;
     padding: 10px;
@@ -189,11 +189,20 @@ header {
 
 
   @media screen and (max-width: 600px){
+    #choice-amount {
+        width: 60vw !important;
+    }
+    .create {
+       font-size: 17px !important;
+      }
+    .home {
+        font-size: 22px !important;
+    }
     .developer {
         font-size: 18px !important;
     }
     .font {
-        font-size: 12px;
+        font-size: 11px !important;
     }
      .modal-content {
          width: 80%;
@@ -203,6 +212,9 @@ header {
      }
   }
   @media screen and (max-width: 1000px) {
+      #choice-amount {
+          width: 50vw !important;
+      }
       .developer {
           font-size: 18px !important;
       }

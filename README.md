@@ -31,5 +31,7 @@
 ## Addons
 - [x] Choice committed over 10 transactions rounded up to three decimals instead of the long decimals via my former demo.
 - [x] Resturctured files + added MongoDB database to hold proposals data.
+- [x] Both mobile and desktop responsive 
+- [x] Better UI than the last demo
 
  
