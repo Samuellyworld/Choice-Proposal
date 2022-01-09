@@ -18,10 +18,10 @@
 ## Functionalities
 - [x] User can add proposal and vote on the proposal.
 - [x] User have to provide 100 choice coin before submiting a proposal.
-- [x] Another user with the web app link can vote on already added proposals and ongoing election.
+- [x] Another user with the web app link can vote on already submitted proposals and ongoing election.
 - [x] Added error alert mop up to see when there is an error to improve the UX(User experience).
 - [x] Both users with proposals and new users with the link can vote on general ongoing election.
-- [x] one choice is used to vote on general ongoing election
+- [x] one choice is committed to vote on general ongoing election
 
 ##  New features 
 - [x] A new ongoing election page was added so users can vote.

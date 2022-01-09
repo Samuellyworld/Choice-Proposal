@@ -160,7 +160,7 @@ const algoSignerConnect = async () => {
              if (response){
                  // results.textContent= `Your transactionID : ${response}` //transaction response
                  console.log(response)
-                 succes.textContent = `TnxID: ${response}.tnxId`;
+                 succes.textContent = `TnxID: ${response}.txId`;
                  succes.classList.add("success_show");
                  setTimeout(() => {
                      succes.classList.remove("success_show");
@@ -181,7 +181,7 @@ const algoSignerConnect = async () => {
                      if (response){
                          // results.textContent= `Your transactionID : ${response}` //transaction response
                          console.log(response)
-                         succes.textContent = `TnxID: ${response}`;
+                         succes.textContent = `TnxID: ${response.txId}`;
                          succes.classList.add("success_show");
                          setTimeout(() => {
                              succes.classList.remove("success_show");
@@ -343,7 +343,7 @@ const algoSignerConnect = async () => {
                  if (response){
                      // results.textContent= `Your transactionID : ${response}` //transaction response
                      console.log(response)
-                     eachSuccess.textContent = `TnxID: ${response.tnxId}`;
+                     eachSuccess.textContent = `TnxID: ${response.txId}`;
                      eachSuccess.classList.add("success_show");
                      setTimeout(() => {
                          eachSuccess.classList.remove("success_show");
@@ -373,7 +373,7 @@ const algoSignerConnect = async () => {
                          if (response){
                              // results.textContent= `Your transactionID : ${response}` //transaction response
                              console.log(response)
-                             eachSuccess.textContent = `TnxID: ${response.tnxId}`;
+                             eachSuccess.textContent = `TnxID: ${response.txId}`;
                              eachSuccess.classList.add("success_show");
                              setTimeout(() => {
                                  eachSuccess.classList.remove("success_show");
@@ -394,3 +394,103 @@ const algoSignerConnect = async () => {
                  
      }
  
+     //candidate connect
+ const algosignerConnectCandidate = async () => {
+        try {
+            if (typeof window.AlgoSigner === "undefined") {
+              window.open(
+                "https://chrome.google.com/webstore/detail/algosigner/kmmolakhbgdlpkjkcjkebenjheonagdm",
+                "_blank"
+              );
+            } else {
+              await window.AlgoSigner.connect({
+                ledger: "TestNet",
+              });
+              const candidateAccounts = await window.AlgoSigner.accounts({
+                ledger: "TestNet",
+              });
+              candidateModal.style.display = 'none';
+               console.log(candidateAccounts);
+              if(candidateAccounts) {
+                  candidateModal.style.display = 'none';
+                  candidateSuccess.textContent = "Algosigner Wallet connected";
+                   candidateSuccess.classList.add("success_show");
+                   setTimeout(() => {
+                       candidateSuccess.classList.remove("success_show");
+                   }, 2000)
+      
+                   responses = candidateAccounts[0].address
+    
+           
+              }
+      
+            }
+          } catch (error) {
+            candidateModal.style.display = 'none';
+              console.log(error)
+              candidateError.textContent= "Algosigner is not set up yet 📃 "
+              candidateError.classList.add("error_show")
+              setTimeout(() => {
+                  candidateError.classList.remove("error_show")
+              }, 2000)
+          }
+     }
+
+     //candidate sign
+const algosignerSignCandidate = async () => {
+  
+    if(!responses) {
+        candidateError.textContent= "You need to connect your wallet 📵"
+        candidateError.classList.add("error_show")
+        setTimeout(() => {
+            candidateError.classList.remove("error_show")
+        }, 1000)
+       }  else {
+        let params = await algodclient.getTransactionParams().do();
+        let encoder = new TextEncoder();
+        try {
+            let txn = await algosdk.makeAssetTransferTxnWithSuggestedParams(
+                responses,
+                proposalAddress,
+                undefined,
+                undefined,
+                1,
+                encoder.encode("Vote with Choice coin"),
+                ASSET_ID,
+                params
+             );
+            // Use the AlgoSigner encoding library to make the transactions base64
+            const txn_b64 = AlgoSigner.encoding.msgpackToBase64(txn.toByte());
+                
+            let signedTxn =  await AlgoSigner.signTxn([{txn: txn_b64}]);
+        
+            let sendTxn = await AlgoSigner.send({
+                ledger: 'TestNet',
+                tx: signedTxn[0].blob
+            });
+            if(sendTxn) {
+                successfulVotePage.hidden = false;
+                homePage.hidden = true;
+                proposals.style.display = 'none'
+                proposalCreate.hidden= true;
+                eachProposalVotePage.hidden = true;
+                footer.hidden = true;
+                proposalVotePage.hidden=true;
+                Footer.hidden = true;
+                candidatesPage.style.display = 'none';
+                successfulSuccess.textContent = `TnxID: ${sendTxn.txId}`;
+                successfulSuccess.classList.add("success_show");
+                setTimeout(() => {
+                    successfulSuccess.classList.remove("success_show");
+                }, 2000)
+            }
+       } catch(e) {
+        candidateError.textContent= "Error Voting Candidate 🕵🏻‍♂️"
+        candidateError.classList.add("error_show")
+        setTimeout(() => {
+            candidateError.classList.remove("error_show")
+        }, 2000)
+        console.log(err)
+       }
+}  
+}

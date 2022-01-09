@@ -425,14 +425,14 @@ font-family: 'Poppins', sans-serif;
               </div>
               
               <div class="modal-body">
-                <div class="flex inline-flex w-full " onclick="myAlgoWalletConnect()">
+                <div class="flex inline-flex w-full " onclick="myAlgoconnectEachCandidate ()">
                     <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
                         <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/76r9kXSr/My-Algo-Logo-4c21daa4.png" alt="algorand" srcset="">
                         <p class="pt-3" style="margin-left: 10px;" > My Algo Wallet</p>
                     </button>
                 </div>
 
-             <div class="flex inline-flex w-full " onclick="algoSignerConnect()" >
+             <div class="flex inline-flex w-full " onclick="algosignerConnectCandidate()" >
                  <button class="flex border rounded border-gray-700 inline-flex w-full hover:text-white hover:bg-gray-700" href="">
                      <img style="margin-top: 10px; margin-left: 10px;" class="w-7 text-white " src="https://i.postimg.cc/L4JB4JwT/Algo-Signer-2ec35000.png" alt="algosigner" srcset="">
                      <p class="pt-3" style="margin-left: 10px;" > Algosigner</p>
@@ -455,37 +455,45 @@ font-family: 'Poppins', sans-serif;
 </div>
 <p class="dev" style="margin: 10px; display: flex; text-align: left; color: red;" >please note, for each vote 1 choice will be committed</p>
 <p class="font-semibold text-xl my-10 text-center " > Candidates </p>
+
+<div id="candidate-error" class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+</div>
+<div id="candidate-success" class="success">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+</div>
+
 <div class=" shadow-md border p-10  flex flex-col md-mx-5 md:grid md:grid-cols-4 md:gap-5">
 <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
     <span> <img class=" w-56 h-30  flex items-center justify-center" src="https://avatars.githubusercontent.com/u/19754168?v=4" alt=""> </span>
-    <p class="font-medium text-base pt-5 " > Xekhai </p>  <span> 
+    <p class="font-medium text-base pt-5 " class="Xekhai" id="Xekhai"> Xekhai </p>  <span> 
 
-     <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+     <a><button  onclick="signEachCandidateVote()" class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
 </div>
 <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
     <span> <img class="  w-56 h-30 flex items-center justify-center" src="https://avatars.githubusercontent.com/u/81499885?v=4" alt=""> </span>
-    <p class="font-medium text-base pt-5 " > Oluwatunmise</p>  <span> 
+    <p class="font-medium text-base pt-5 " class="Oluwatunmise" id="Oluwatunmise"> Oluwatunmise</p>  <span> 
     
 
-        <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+        <a><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
 </div>
 <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
     <span> <img class=" w-56 h-30  flex items-center justify-center" src="https://avatars.githubusercontent.com/u/78707441?v=4" alt=""> </span>
-    <p class="font-medium text-base pt-5 " > AlphaGlitch </p>  <span> 
+    <p class="font-medium text-base pt-5 " class="AlphaGlitch" id="AlphaGlitch" > AlphaGlitch </p>  <span> 
 
-        <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+        <a><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
 </div>
 <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
     <span> <img class="w-56 h-30   flex items-center justify-center" src="https://avatars.githubusercontent.com/u/40547207?v=4" alt=""> </span>
-    <p class="font-medium text-base pt-5 " > Jagah</p>  <span> 
+    <p class="font-medium text-base pt-5 " class="Jagah" id="Jagah"> Jagah</p>  <span> 
 
-        <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+        <a><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
 </div>
 <div class="flex flex-col pb-10 md:pb-0 justify-center items-center" >
     <span> <img class="w-56 h-30   flex items-center justify-center" src="https://avatars.githubusercontent.com/u/63968702?v=4" alt=""> </span>
-    <p class="font-medium text-base pt-5 " >Prince Hope</p>  <span> 
+    <p class="font-medium text-base pt-5 " class="Prince Hope" id="PrinceHope">Prince Hope</p>  <span> 
 
-        <a href="./successfulVote.html"><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
+        <a><button   class=" bg-blue-800 mt-2 hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-xl focus:outline-none focus:shadow-outline" >   vote </button> </a> 
 </div>
 
 
@@ -497,10 +505,10 @@ font-family: 'Poppins', sans-serif;
 
     <!-- successful vote -->
     <div id="successful" class=" mt-24" hidden>
-        <div id="err" class="alert">
+        <div id="success-err" class="alert">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         </div>
-        <div id="succes" class="success">
+        <div id="success-succes" class="success">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         </div>
 

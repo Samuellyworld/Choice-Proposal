@@ -26,6 +26,8 @@ const success = document.getElementById("success");
 const succes = document.getElementById("succes");
 const successs =document.getElementById("successs");
 
+console.log('success', success.className)
+
 // user proposal title
 const proposal_title = document.getElementById("proposal-title");
 
@@ -157,7 +159,7 @@ const signProposalTransactions = async () => {
                             success.classList.add("success_show");
                             setTimeout(() => {
                                 success.classList.remove("success_show");
-                            }, 500)
+                            }, 1000)
                         }
                     }catch(error){
                         err.textContent= "Error Processing Proposal "
@@ -224,7 +226,7 @@ const myAlgoWalletSign = async () =>{
         let response = await algoWalletSend(value, respons, blueChoiceAmount);
                 if (response){
                     console.log(response);
-                    succes.textContent = `TnxID: ${response}`;
+                    succes.textContent = `TnxID: ${response.txnId}`;
                     succes.classList.add("success_show");
                     setTimeout(() => {
                         succes.classList.remove("success_show");
@@ -425,6 +427,101 @@ const signEachProposalSubmittedVote = async () => {
         } 
         }   
 }
+
+//getting each candidate ids
+const candidateError = document.getElementById('candidate-error');
+const candidateSuccess = document.getElementById('candidate-success');
+
+// success error and page
+const successfulSuccess = document.getElementById('success-succes');
+
+
+//get candidate to connect wallet
+
+const myAlgoconnectEachCandidate = async () => {
+    try {
+        let candidateResponse = await myAlgoConnect.connect();
+        candidateModal.style.display = 'none';
+        console.log(candidateResponse);
+        if(candidateResponse) {
+             candidateModal.style.display = 'none';
+             candidateSuccess.textContent = "MyAlgoWallet successfully connected";
+             candidateSuccess.classList.add("success_show");
+             setTimeout(() => {
+                 candidateSuccess.classList.remove("success_show");
+             }, 2000)
+
+             respons = candidateResponse[0].address
+             
+         }
+        
+    } 
+    catch (error){
+        candidateModal.style.display = 'none';
+        candidateError.textContent= "Error Connecting to My AlgoWallet 📃 "
+        candidateError.classList.add("error_show")
+        setTimeout(() => {
+            candidateError.classList.remove("error_show")
+        }, 2000)
+        console.error(error)
+    }
+
+}
+
+const signEachCandidateVote = async() => {
+    if(!respons) {
+        candidateError.textContent= "You need to connect your wallet 📵"
+        candidateError.classList.add("error_show")
+        setTimeout(() => {
+            eachError.classList.remove("error_show")
+        }, 1000)
+       } else {
+        let param = await algodClient.getTransactionParams().do(); //get params
+        let encode = new TextEncoder();  //encode
+                    try {
+                        let txn = await algosdk.makeAssetTransferTxnWithSuggestedParams(
+                            respons,
+                            redAddress,
+                            undefined,
+                            undefined,
+                            1,
+                            encode.encode("Vote with Choice coin"),
+                            ASSET_ID,
+                            param
+                        )
+                        const signedTxn = await myAlgoConnect.signTransaction(txn.toByte());
+                        const response = await algodClient.sendRawTransaction(signedTxn.blob).do();
+                        if(response) {
+                            successfulVotePage.hidden = false;
+                            homePage.hidden = true;
+                            proposals.style.display = 'none'
+                            proposalCreate.hidden= true;
+                            eachProposalVotePage.hidden = true;
+                            footer.hidden = true;
+                            proposalVotePage.hidden=true;
+                            Footer.hidden = true;
+                            candidatesPage.style.display = 'none';
+                            console.log(response);
+                            successfulSuccess.textContent = `TnxID: ${response.txnId}`;
+                            successfulSuccess.classList.add("success_show");
+                            setTimeout(() => {
+                                successfulSuccess.classList.remove("success_show");
+                            }, 2000)
+                                }
+       }
+       catch(err) {
+        candidateError.textContent= "Error Processing Proposal "
+        candidateError.classList.add("error_show")
+        setTimeout(() => {
+            candidateError.classList.remove("error_show")
+        }, 2000)
+        console.log(err)
+       }
+} 
+}
+
+
+
 
 
 const checkWallet = () => {
