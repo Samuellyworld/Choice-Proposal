@@ -84,7 +84,7 @@ const algoSignerConnect = async () => {
                 proposalAddress,
                 undefined,
                 undefined,
-                2*100,
+                100*100,
                 encoder.encode("Vote with Choice coin"),
                 ASSET_ID,
                 params
