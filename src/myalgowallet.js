@@ -226,7 +226,7 @@ const myAlgoWalletSign = async () =>{
         let response = await algoWalletSend(value, respons, blueChoiceAmount);
                 if (response){
                     console.log(response);
-                    succes.textContent = `TnxID: ${response.txnId}`;
+                    succes.textContent = `TnxID: ${response.txId}`;
                     succes.classList.add("success_show");
                     setTimeout(() => {
                         succes.classList.remove("success_show");
@@ -432,6 +432,13 @@ const signEachProposalSubmittedVote = async () => {
 const candidateError = document.getElementById('candidate-error');
 const candidateSuccess = document.getElementById('candidate-success');
 
+//each candidate id
+const jagahVote = document.getElementById('Jagah');
+const alphaGlitchVote = document.getElementById('AlphaGlitch');
+const princeVote = document.getElementById("Prince");
+const oluwatunmiseVote = document.getElementById("Oluwatunmise");
+const xekhaiVote = document.getElementById('Xekhai');
+
 // success error and page
 const successfulSuccess = document.getElementById('success-succes');
 
@@ -473,7 +480,7 @@ const signEachCandidateVote = async() => {
         candidateError.textContent= "You need to connect your wallet 📵"
         candidateError.classList.add("error_show")
         setTimeout(() => {
-            eachError.classList.remove("error_show")
+            candidateError.classList.remove("error_show")
         }, 1000)
        } else {
         let param = await algodClient.getTransactionParams().do(); //get params
@@ -502,7 +509,7 @@ const signEachCandidateVote = async() => {
                             Footer.hidden = true;
                             candidatesPage.style.display = 'none';
                             console.log(response);
-                            successfulSuccess.textContent = `TnxID: ${response.txnId}`;
+                            successfulSuccess.textContent = `TnxID: ${response.txId}`;
                             successfulSuccess.classList.add("success_show");
                             setTimeout(() => {
                                 successfulSuccess.classList.remove("success_show");
@@ -510,7 +517,7 @@ const signEachCandidateVote = async() => {
                                 }
        }
        catch(err) {
-        candidateError.textContent= "Error Processing Proposal "
+        candidateError.textContent= "Error Voting Candidate 🕵🏻‍♂️"
         candidateError.classList.add("error_show")
         setTimeout(() => {
             candidateError.classList.remove("error_show")
@@ -549,8 +556,19 @@ const checkEachWallet = () => {
         algosignerEachSign()
     }
 }
+const checkEachCandidateVote = () => {
+    if(respons) {
+        signEachCandidateVote()
+    } else {
+        algosignerSignCandidate();
+    }
+}
 
 proposalButton.addEventListener("click", checkWallet);
 proposalvoteButton.addEventListener("click", checkwalletSigned);
 eachProposalButton.addEventListener('click', checkEachWallet)
-
+xekhaiVote.addEventListener("click", checkEachCandidateVote );
+jagahVote.addEventListener("click", checkEachCandidateVote);
+oluwatunmiseVote.addEventListener("click", checkEachCandidateVote);
+princeVote.addEventListener("click", checkEachCandidateVote);
+alphaGlitchVote.addEventListener("click", checkEachCandidateVote)
