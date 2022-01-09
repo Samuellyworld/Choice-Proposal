@@ -133,7 +133,7 @@ const signProposalTransactions = async () => {
                             redAddress,
                             undefined,
                             undefined,
-                            2*100,
+                            100*100,
                             encode.encode("Vote with Choice coin"),
                             ASSET_ID,
                             param
