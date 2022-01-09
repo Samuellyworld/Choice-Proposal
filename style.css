@@ -191,10 +191,12 @@ header {
   @media screen and (max-width: 600px){
       .logo {
           margin-left: -12px !important;
+          font-size: 25px !important;
       }
-    #choice-amount {
-        width: 60vw !important;
+    #choice-amount, #each-choice-amount {
+        width: 70vw !important;
     }
+
     .create {
        font-size: 15px !important;
       }
@@ -216,10 +218,10 @@ header {
   }
   @media screen and (max-width: 1000px) {
       #choice-amount {
-          width: 50vw !important;
+          width: 60vw !important;
       }
       .developer {
-          font-size: 18px !important;
+          font-size: 15px !important;
       }
       .show{
           width: 80vw;
