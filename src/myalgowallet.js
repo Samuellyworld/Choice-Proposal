@@ -13,7 +13,7 @@ const indexerClient = new algosdk.Indexer(Puretoken,"https://testnet-algorand.ap
 
 var dropdownModal = document.getElementById('simpleModal'); //wallet dropdown modal
 
-const coin_in_gov_btn = document.getElementById("total_gov_coin");
+const coin_in_gov_btn = document.getElementById("total_gov_coin"); 
 const wallet_address = document.getElementById("wallet-address");
 
 // err modal
@@ -55,15 +55,15 @@ const choiceAmount = document.getElementById("choice-amount")
 const successfulVotePage = document.getElementById("successful") //get success page
 
 
-const ASSET_ID = 21364625;
+const ASSET_ID = 21364625; // choicr asset ID
 
 
 
-let respons;
-const myAlgoConnect = new MyAlgoConnect();
+let respons; //respons
+const myAlgoConnect = new MyAlgoConnect(); //initialize
 
 
-
+/// connection to my algo wallet
 
 const myAlgoWalletConnect = async () => {
 
@@ -109,6 +109,7 @@ const myAlgoWalletConnect = async () => {
     }
 }
 
+//sign each  proposal
 const signProposalTransactions = async () => {
 
     if(!respons) {
@@ -132,7 +133,7 @@ const signProposalTransactions = async () => {
                             redAddress,
                             undefined,
                             undefined,
-                            1,
+                            2*100,
                             encode.encode("Vote with Choice coin"),
                             ASSET_ID,
                             param
@@ -178,7 +179,7 @@ const signProposalTransactions = async () => {
 
 
 
-
+// sign each transaction
 const myAlgoWalletSign = async () =>{
     
     if(!red.checked && !blue.checked) {
@@ -256,7 +257,7 @@ const algoWalletSend = async (value, wallet_address, amount) => {
                 address_1,
                 undefined,
                 undefined,
-                amount,
+                amount*100,
                 encoder.encode("Vote with Choice coin"),
                 ASSET_ID,
                 params
@@ -281,7 +282,7 @@ const algoWalletSend = async (value, wallet_address, amount) => {
                 address_2,
                 undefined,
                 undefined,
-                amount,
+                amount*100,
                 encoder.encode("Vote with Choice coin"),
                 ASSET_ID,
                 params
@@ -491,7 +492,7 @@ const signEachCandidateVote = async() => {
                             redAddress,
                             undefined,
                             undefined,
-                            1,
+                            1*100,
                             encode.encode("Vote with Choice coin"),
                             ASSET_ID,
                             param
