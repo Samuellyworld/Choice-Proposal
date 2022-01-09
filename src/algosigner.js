@@ -49,7 +49,7 @@ const algoSignerConnect = async () => {
                 history["transactions"].forEach(data=>{
                     totalCoin += data["asset-transfer-transaction"]["amount"]/100
                 });
-             }, 2000)  
+             }, 500)  
              coin_in_gov_btn.textContent += ` ${totalCoin} Choice | ${resp}...`;
              coin_in_gov_btn.classList.add("show");
      
@@ -84,7 +84,7 @@ const algoSignerConnect = async () => {
                 proposalAddress,
                 undefined,
                 undefined,
-                Number(proposal_choice.value),
+                2*100,
                 encoder.encode("Vote with Choice coin"),
                 ASSET_ID,
                 params
@@ -207,7 +207,7 @@ const algoSignerConnect = async () => {
                  address_1,
                  undefined,
                  undefined,
-                 amount,
+                 amount*100,
                  encoder.encode("Vote with Choice coin"),
                  ASSET_ID,
                  params
@@ -241,7 +241,7 @@ const algoSignerConnect = async () => {
                  address_2,
                  undefined,
                  undefined,
-                 amount,
+                 amount*100,
                  encoder.encode("Vote with Choice coin"),
                  ASSET_ID,
                  params
@@ -454,7 +454,7 @@ const algosignerSignCandidate = async () => {
                 proposalAddress,
                 undefined,
                 undefined,
-                1,
+                1*100,
                 encoder.encode("Vote with Choice coin"),
                 ASSET_ID,
                 params
