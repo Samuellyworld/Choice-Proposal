@@ -179,7 +179,7 @@ const signProposalTransactions = async () => {
 
 
 
-// sign each transaction
+// sign each transaction.
 const myAlgoWalletSign = async () =>{
     
     if(!red.checked && !blue.checked) {
@@ -196,7 +196,7 @@ const myAlgoWalletSign = async () =>{
             errors.classList.remove("error_show")
         }, 2000)
     }
-     // check if redinput is clicked
+     // check if redinput is clicked.
      else if(red.checked) {
         let value = red.value
         console.log(value)
