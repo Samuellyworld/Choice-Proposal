@@ -15,6 +15,8 @@
 
 - video at - https://www.youtube.com/watch?v=Zo7I-V1qNic
 
+- check the backend [repo](https://github.com/Samuellyworld/Proposal-Backend)
+
 ## Functionalities
 - [x] User can add proposal and vote on the proposal.
 - [x] User have to provide 100 choice coin before submiting a proposal.
