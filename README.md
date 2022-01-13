@@ -15,7 +15,7 @@
 
 - video at - https://www.youtube.com/watch?v=Zo7I-V1qNic
 
-- check the proposal backend [repo](https://github.com/Samuellyworld/Proposal-Backend) coded with NodeJs + MongoDB as database to store proposals
+- check the proposal backend [repo](https://github.com/Samuellyworld/Proposal-Backend) coded with NodeJs + MongoDB as database to store proposals.
 
 ## Functionalities
 - [x] User can add proposal and vote on the proposal.
