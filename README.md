@@ -4,11 +4,13 @@
 - `git clone` the repository
 
   ```
-   git clone git@github.com:Samuellyworld/Choice-Proposal.git
-   
+   $ git clone git@github.com:Samuellyworld/Choice-Proposal.git
    ```
 
-- `cd` into the folder
+-  `cd` into the folder
+  ```
+   $ cd Choice-Proposal
+  ```
 
 - `npm install -g live-server` to global install live-server
 
