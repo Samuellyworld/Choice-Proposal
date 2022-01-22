@@ -15,7 +15,9 @@
  
 - live at on [web](https://choice-coin-proposal.netlify.app/)
 
-- video at - https://www.youtube.com/watch?v=S4awTDNybBM
+## video
+
+- check video https://www.youtube.com/watch?v=S4awTDNybBM
 
 - check the proposal backend [repo](https://github.com/Samuellyworld/Proposal-Backend) coded with NodeJs + MongoDB as database to store proposals.
 
