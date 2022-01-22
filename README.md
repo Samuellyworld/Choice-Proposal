@@ -17,6 +17,9 @@
  ```
 
 - `live-server` to start scripts 
+ ```
+   $ live-server
+ ```
 
  or you can easily install `go-live` package on `vscode` then it will launch the `index.html`
 
