@@ -13,7 +13,7 @@
 
  ## Preview
  
-- live at on [web]https://choice-coin-proposal.netlify.app/
+- live at on [web](https://choice-coin-proposal.netlify.app/)
 
 - video at - https://www.youtube.com/watch?v=S4awTDNybBM
 
