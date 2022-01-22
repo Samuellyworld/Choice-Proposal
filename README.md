@@ -2,17 +2,19 @@
 
 ## RUN ON YOUR LOCAL MACHINE 
 - `git clone` the repository
-
-  ```
+ ```
    $ git clone git@github.com:Samuellyworld/Choice-Proposal.git
-   ```
+ ```
 
 -  `cd` into the folder
-  ```
+ ```
    $ cd Choice-Proposal
-  ```
+ ```
 
 - `npm install -g live-server` to global install live-server
+ ```
+   $ npm install -g live-server
+ ```
 
 - `live-server` to start scripts 
 
