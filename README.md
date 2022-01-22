@@ -17,7 +17,7 @@
 
 ## video
 
-- check video on youtube  https://www.youtube.com/watch?v=S4awTDNybBM
+- check video on [youtube](https://www.youtube.com/watch?v=S4awTDNybBM)
 
 ## Functionalities
 - [x] User can add proposal and vote on the proposal.
