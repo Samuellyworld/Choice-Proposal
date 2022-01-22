@@ -15,7 +15,7 @@
  
 - live at on [web](https://choice-coin-proposal.netlify.app/)
 
-## video
+## check how it works
 
 - check video on [youtube](https://www.youtube.com/watch?v=S4awTDNybBM)
 
