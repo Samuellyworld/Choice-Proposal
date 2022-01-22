@@ -1,7 +1,12 @@
 # Choice-Proposal
 
 ## RUN ON YOUR LOCAL MACHINE 
-- After `git cloning` the repository
+- `git clone` the repository
+
+  ```
+   git clone git@github.com:Samuellyworld/Choice-Proposal.git
+   
+   ```
 
 - `cd` into the folder
 
