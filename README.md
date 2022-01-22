@@ -13,7 +13,7 @@
  
 - live at - https://choice-coin-proposal.netlify.app/
 
-- video at - https://www.youtube.com/watch?v=Zo7I-V1qNic
+- video at - https://www.youtube.com/watch?v=S4awTDNybBM
 
 - check the proposal backend [repo](https://github.com/Samuellyworld/Proposal-Backend) coded with NodeJs + MongoDB as database to store proposals.
 
@@ -34,7 +34,7 @@
 ## Addons
 - [x] Choice committed over 10 transactions rounded up to three decimals instead of the long decimals via my former demo.
 - [x] Resturctured files + added MongoDB database to hold proposals data.
-- [x] Both mobile and desktop responsive 
-- [x] Better UI than the last demo
+- [x] Both mobile and desktop responsive.
+- [x] Better UI than the last demo.
 
  
