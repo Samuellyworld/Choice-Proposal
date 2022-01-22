@@ -15,7 +15,9 @@
  
 - live at on [web](https://choice-coin-proposal.netlify.app/)
 
-- video at - https://www.youtube.com/watch?v=S4awTDNybBM
+## video
+
+- check video https://www.youtube.com/watch?v=S4awTDNybBM
 
 ## Functionalities
 - [x] User can add proposal and vote on the proposal.
