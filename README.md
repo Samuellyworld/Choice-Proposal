@@ -17,7 +17,7 @@
 
 ## video
 
-- check video on youtube  https://www.youtube.com/watch?v=S4awTDNybBM
+- check video on [youtube](https://www.youtube.com/watch?v=S4awTDNybBM)
 
 - check the proposal backend [repo](https://github.com/Samuellyworld/Proposal-Backend) coded with NodeJs + MongoDB as database to store proposals.
 
