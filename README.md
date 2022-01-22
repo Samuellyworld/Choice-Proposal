@@ -10,8 +10,10 @@
 - `live-server` to start scripts 
 
  or you can easily install `go-live` package on `vscode` then it will launch the `index.html`
+
+ ## Preview
  
-- live at - https://choice-coin-proposal.netlify.app/
+- live at https://choice-coin-proposal.netlify.app/
 
 - video at - https://www.youtube.com/watch?v=S4awTDNybBM
 
