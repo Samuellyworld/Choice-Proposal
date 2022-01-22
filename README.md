@@ -13,11 +13,13 @@
 
  ## Preview
  
-- live at on [web](https://choice-coin-proposal.netlify.app/)
+- live on [web](https://choice-coin-proposal.netlify.app/)
 
 ## check how it works
 
 - check video on [youtube](https://www.youtube.com/watch?v=S4awTDNybBM)
+
+## Backend Repository
 
 - check the proposal backend [repo](https://github.com/Samuellyworld/Proposal-Backend) coded with NodeJs + MongoDB as database to store proposals.
 
